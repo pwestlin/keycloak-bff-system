@@ -28,7 +28,11 @@ class GatewaySecurityConfig {
             .authorizeExchange { exchange ->
                 exchange
                     // Tillåt startsidan, din app.js, favicons och eventuella undermappar utan inloggning
-                    .pathMatchers("/", "/index.html", "/app.js", "/favicon.ico", "/static/**", "/js/**").permitAll()
+                    .pathMatchers(
+                        "/", "/index.html", "/app.js", "/favicon.ico",
+                        "/login/oauth2/code/keycloak", // <--- ÄR DENNA MED?
+                        "/static/**", "/js/**"
+                    ).permitAll()
                     // Allt annat (som dina API-anrop under /api/**) kräver inloggning
                     .anyExchange().authenticated()
             }

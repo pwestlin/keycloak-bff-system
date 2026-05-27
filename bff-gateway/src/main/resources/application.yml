@@ -6,13 +6,15 @@ spring:
     name: bff-gateway
   cloud:
     gateway:
-      routes:
-        - id: backend-route
-          uri: http://localhost:8181
-          predicates:
-            - Path=/api/**
-          filters:
-            - TokenRelay
+      server:
+        webflux:
+          routes:
+            - id: backend-route
+              uri: http://localhost:8181
+              predicates:
+                - Path=/api/**
+              filters:
+                - TokenRelay
 
   security:
     oauth2:
