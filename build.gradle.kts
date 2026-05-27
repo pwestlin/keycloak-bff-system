@@ -1,4 +1,4 @@
-// Rotens build.gradle.kts
+import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
 plugins {
     kotlin("jvm") version "2.3.21" apply false
@@ -14,7 +14,7 @@ subprojects {
     plugins.apply("org.springframework.boot")
     plugins.apply("io.spring.dependency-management")
 
-    configure<org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension> {
+    configure<KotlinJvmProjectExtension> {
             jvmToolchain(25)
         }
 }
