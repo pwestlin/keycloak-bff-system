@@ -1,0 +1,20 @@
+server:
+  port: 8282 # Kör klienten på en egen port
+
+spring:
+  application:
+    name: backend-service-client
+
+  security:
+    oauth2:
+      client:
+        registration:
+          backend-to-backend:
+            provider: keycloak
+            client-id: backend-client-service
+            client-secret: socpUK7v2eCtO16U9Audk3yowcx9iQhm
+            authorization-grant-type: client_credentials # <--- Viktigt! Maskin-till-maskin flöde
+            scope: openid, profile, roles
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:9000/realms/myrealm

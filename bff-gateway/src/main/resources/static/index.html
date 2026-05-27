@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <title>BFF Keycloak Demo</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; background: #f4f4f9; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        button { background: #0066cc; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; }
+        pre { background: #eee; padding: 10px; border-radius: 4px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>BFF & Spring Cloud Gateway Demo</h1>
+        <p>Denna frontend har <strong>inga tokens</strong> lagrade i webbläsaren. Allt hanteras via en HttpOnly session-cookie.</p>
+        <button id="fetchBtn">Hämta data från skyddad backend</button>
+        <h3>Resultat från backend:</h3>
+        <pre id="output">Klicka på knappen för att hämta data...</pre>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: bff-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: backend-route
+          uri: http://localhost:8181
+          predicates:
+            - Path=/api/**
+          filters:
+            - TokenRelay
+
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak-bff:
+            provider: keycloak
+            client-id: web-bff-client
+            client-secret: 2yvJxQQOLb32l0V5yFqOzs7Zoo0IE4sn
+            authorization-grant-type: authorization_code
+            redirect-uri: "{baseUrl}/login/oauth2/code/{registrationId}"
+            scope: openid, profile, roles
+        provider:
+          keycloak:
+            issuer-uri: http://localhost:9000/realms/myrealm
