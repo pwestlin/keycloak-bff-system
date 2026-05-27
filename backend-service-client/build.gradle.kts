@@ -6,7 +6,6 @@ plugins {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-webmvc")
     implementation("org.springframework.boot:spring-boot-starter-oauth2-client") // Hanterar Client Credentials flödet
     implementation("org.springframework.boot:spring-boot-starter-security")
