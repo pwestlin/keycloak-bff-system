@@ -29,6 +29,12 @@ Projektet är uppdelat i tre Gradle-moduler under en gemensam rot. Samtliga modu
 * **Ansvar:** Fungerar som applikationens kärn-API (Resource Server) som innehåller affärslogik och skyddat data (/api/data). 
 * **Säkerhetsflöde:** **OAuth2 Resource Server (JWT Validering)**.
 * **Varför?** Denna tjänst är helt tillståndslös och vet ingenting om cookies, sessioner eller hur användaren loggade in. Den litar blint på den `Authorization: Bearer <JWT>`-header som skickas med i anropen. Vid varje anrop validerar den tokens signatur i minnet mot Keycloaks publika nycklar, samt kontrollerar att token innehåller rätt roll (t.ex. `USER`) innan den släpper igenom anropet.
+* **Kontrollerar inte bara var JWT:n kommer från utan också dess `audience`**:
+```yaml
+audiences:
+  - backend-client-service
+  - web-bff-client
+```
 
 ### 🤖 backend-service-client (Port 8282)
 * **Ansvar:** Demonstrerar autonom maskin-till-maskin-kommunikation (Backend-to-Backend). Det är en bakgrundstjänst/klient som behöver hämta data från `backend-service` helt utan mänsklig interaktion.
