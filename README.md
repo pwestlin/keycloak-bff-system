@@ -75,7 +75,8 @@ Lyssnar på port 8181. Verifiera i loggarna att den startat.
 ```bash
 ./gradlew :bff-gateway:bootRun
 ```
-Lyssnar på port 8080. Det är denna adress http://localhost:8080 du besöker i webbläsaren för att testa applikationen.
+Lyssnar på port 8080. Det är denna adress http://localhost:8080 du besöker i webbläsaren för att testa applikationen.  
+Logga in med `user/password`
 
 #### 3. Starta Backend Client (Maskin-till-maskin)
 ```bash
